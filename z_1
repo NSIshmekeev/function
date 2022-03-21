@@ -1,0 +1,49 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+void random_array(int array[]) {
+	for (int i = 0; i < 150; i++) {
+		array[i] = rand() % 23 + 14;
+	}
+
+}
+void print_array(int array[]) {
+	for (int i = 0; i < 150; i++) {
+		cout << array[i] << " ";
+	}
+}
+void min_count(int array[]) {
+	int count[150] = {0};
+	for (int i = 0; i < 150; i++) {
+		int x = array[i];
+		for (int j = 0; j < 150; j++) {
+			if (x == array[j]) {
+				count[i]++;
+			}
+		}
+	}
+	int min = count[0];
+	for (int k = 0; k < 150; k++) {
+		if (min > count[k]) {
+			min == count[k]; 
+		}
+	}
+	for (int l = 0; l < 150; l++) {
+		if (min == count[l]) {
+			cout << array[l] << " " << min;
+			break;
+		}
+	}
+}
+int main() {
+	srand(time(0));
+
+	int array[150];
+	random_array(array);
+	print_array(array);
+	cout << endl << endl;
+	min_count(array);
+
+
+	return 0;
+}
